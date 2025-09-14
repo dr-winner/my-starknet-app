@@ -22,7 +22,7 @@ const IncreaseCounterButton = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg h-64">
       <h2 className="text-2xl font-bold text-base-content mb-4">Increase Counter</h2>
       <p className="text-sm text-base-content/70 mb-4 text-center">
         Click the button below to increase the counter by 1

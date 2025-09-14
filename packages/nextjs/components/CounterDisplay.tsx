@@ -10,7 +10,7 @@ const CounterDisplay = () => {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg h-64">
         <div className="loading loading-spinner loading-md"></div>
         <p className="mt-2 text-sm text-base-content/70">Loading counter...</p>
       </div>
@@ -19,7 +19,7 @@ const CounterDisplay = () => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center p-6 bg-error/10 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center justify-center p-6 bg-error/10 rounded-lg shadow-lg h-64">
         <p className="text-error font-medium">Error loading counter</p>
         <p className="text-sm text-error/70 mt-1">{error.message}</p>
       </div>
@@ -27,7 +27,7 @@ const CounterDisplay = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg h-64">
       <h2 className="text-2xl font-bold text-base-content mb-2">Counter Value</h2>
       <div className="text-4xl font-mono font-bold text-primary">
         {counter ? counter.toString() : "0"}

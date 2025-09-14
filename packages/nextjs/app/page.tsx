@@ -18,7 +18,7 @@ const Home = () => {
            <CounterDisplay />
            <IncreaseCounterButton />
            <IncreaseCounterAlternative />
-           <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
+           <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg h-64">
              <h2 className="text-2xl font-bold text-base-content mb-2">Connected Address</h2>
              <ConnectedAddress />
            </div>
