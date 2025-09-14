@@ -4,6 +4,8 @@ pub trait IYourContract<TContractState> {
     fn set_greeting(ref self: TContractState, new_greeting: ByteArray, amount_strk: Option<u256>);
     fn withdraw(ref self: TContractState);
     fn premium(self: @TContractState) -> bool;
+    fn get_counter(self: @TContractState) -> u256;
+    fn increase_counter(ref self: TContractState);
 }
 
 #[starknet::contract]
@@ -108,6 +110,12 @@ pub mod YourContract {
         }
         fn premium(self: @ContractState) -> bool {
             self.premium.read()
+        }
+        fn get_counter(self: @ContractState) -> u256 {
+            self.total_counter.read()
+        }
+        fn increase_counter(ref self: TContractState) {
+            self.total_counter.write(self.total_counter.read() + 1);
         }
     }
 }

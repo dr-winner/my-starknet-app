@@ -1,0 +1,43 @@
+"use client";
+
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-stark";
+import { notification } from "~~/utils/scaffold-stark";
+
+const IncreaseCounterButton = () => {
+  const { writeContractAsync: increaseCounter, isPending } = useScaffoldWriteContract({
+    contractName: "YourContract",
+    functionName: "increase_counter",
+    args: [],
+  });
+
+  const handleIncreaseCounter = async () => {
+    try {
+      await increaseCounter();
+      notification.success("Counter increased successfully!");
+    } catch (error) {
+      console.error("Error increasing counter:", error);
+      notification.error("Failed to increase counter. Please try again.");
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold text-base-content mb-4">Increase Counter</h2>
+      <p className="text-sm text-base-content/70 mb-4 text-center">
+        Click the button below to increase the counter by 1
+      </p>
+      <button
+        onClick={handleIncreaseCounter}
+        disabled={isPending}
+        className={`btn btn-primary btn-lg ${isPending ? "loading" : ""}`}
+      >
+        {isPending ? "Increasing..." : "Increase Counter"}
+      </button>
+      {isPending && (
+        <p className="text-sm text-primary mt-2">Transaction in progress...</p>
+      )}
+    </div>
+  );
+};
+
+export default IncreaseCounterButton;
