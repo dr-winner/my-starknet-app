@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ConnectedAddress } from "~~/components/ConnectedAddress";
 import CounterDisplay from "~~/components/CounterDisplay";
 import IncreaseCounterButton from "~~/components/IncreaseCounterButton";
+import IncreaseCounterAlternative from "~~/components/IncreaseCounterAlternative";
 
 const Home = () => {
   return (
@@ -13,9 +14,10 @@ const Home = () => {
            Welcome to Your Starknet App
          </h1>
          
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
            <CounterDisplay />
            <IncreaseCounterButton />
+           <IncreaseCounterAlternative />
            <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
              <h2 className="text-2xl font-bold text-base-content mb-2">Connected Address</h2>
              <ConnectedAddress />

@@ -3,16 +3,16 @@
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-stark";
 import { notification } from "~~/utils/scaffold-stark";
 
-const IncreaseCounterButton = () => {
-  const { writeContractAsync: increaseCounter, isPending } = useScaffoldWriteContract({
+const IncreaseCounterAlternative = () => {
+  const { writeContractAsync: setGreeting, isPending } = useScaffoldWriteContract({
     contractName: "YourContract",
-    functionName: "increase_counter",
-    args: [],
+    functionName: "set_greeting",
+    args: ["Counter incremented!", null], // null for amount_strk (no STRK payment)
   });
 
   const handleIncreaseCounter = async () => {
     try {
-      await increaseCounter();
+      await setGreeting();
       notification.success("Counter increased successfully!");
     } catch (error) {
       console.error("Error increasing counter:", error);
@@ -23,9 +23,9 @@ const IncreaseCounterButton = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-base-content mb-4">Increase Counter</h2>
+      <h2 className="text-2xl font-bold text-base-content mb-4">Increase Counter (Alternative)</h2>
       <p className="text-sm text-base-content/70 mb-4 text-center">
-        Click the button below to increase the counter by 1
+        Uses set_greeting function to increment counter
       </p>
       <button
         onClick={handleIncreaseCounter}
@@ -41,4 +41,4 @@ const IncreaseCounterButton = () => {
   );
 };
 
-export default IncreaseCounterButton;
+export default IncreaseCounterAlternative;
