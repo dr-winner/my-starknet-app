@@ -19,7 +19,22 @@ const Home = () => {
            <IncreaseCounterButton />
            <IncreaseCounterAlternative />
            <div className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-lg shadow-lg h-64">
-             <h2 className="text-2xl font-bold text-base-content mb-2">Connected Address</h2>
+             <div className="flex items-center gap-2 mb-4">
+               <svg 
+                 className="w-6 h-6 text-primary" 
+                 fill="none" 
+                 stroke="currentColor" 
+                 viewBox="0 0 24 24"
+               >
+                 <path 
+                   strokeLinecap="round" 
+                   strokeLinejoin="round" 
+                   strokeWidth={2} 
+                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
+                 />
+               </svg>
+               <h2 className="text-2xl font-bold text-base-content">Connected Address</h2>
+             </div>
              <ConnectedAddress />
            </div>
          </div>
